@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Namoro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;  /* Fonte mais padrão */
+            background: linear-gradient(to right, #1e90ff, #00bfff);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            padding: 10px; /* Evita que o conteúdo fique muito colado às bordas em telas pequenas */
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 90%;  /* Maior responsividade */
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #4682b4;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 18px;
+            color: #4169e1;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        button:hover {
+            background-color: #4682b4;
+            transform: scale(1.05);
+        }
+        .heart {
+            font-size: 50px;
+            color: #1e90ff;
+            position: absolute;
+            animation: heartBeat 1.5s infinite ease-in-out;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="heart">💙</div>
+    <h1>Laryssa Rafaelly, você quer namorar comigo?</h1>
+    <div class="message" id="message"></div>
+    <button id="btnSim">Sim</button>
+    <button id="btnNao" onclick="respostaNao()">Não</button>
+</div>
+
+<script>
+    const btnSim = document.getElementById('btnSim');
+    const message = document.getElementById('message');
+
+    // Ação do botão "Sim"
+    btnSim.onclick = function() {
+        message.textContent = "Pedido aceito, eu te amo muito! 💙";
+        btnSim.disabled = true;
+        document.getElementById('btnNao').disabled = true;
+    }
+
+    // Função para a resposta do botão "Não"
+    function respostaNao() {
+        message.innerHTML = 'Desculpa meu amor, mas você não tem essa opção 😜';
+        document.getElementById('btnSim').disabled = true;
+        document.getElementById('btnNao').disabled = true;
+    }
+</script>
+
+</body>
+</html>
