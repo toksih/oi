@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💙 Para Laryssa Rafaelly 💙</title>
+  <title>💙Para Laryssa💙</title>
   <style>
     * {
       margin: 0;
@@ -127,9 +127,9 @@
 
 <!-- Tela 1 -->
 <section class="tela1" id="pagina1">
-  <h2>💙 Quem te ama muito e vai ser seu futuro marido? 💍</h2>
-  <p>Digite o nome completo dele:</p>
-  <input type="text" id="campoSenha" placeholder="Ex: Iago Carioca" />
+  <h2>Quem te ama muito e vai ser seu futuro marido?💍</h2>
+  <p>Digite o nome e sobrenome dele:</p>
+  <input type="text" id="campoSenha" placeholder="Ex: Iago C....." />
   <button onclick="verificarSenha()">Entrar 💌</button>
   <div id="erroMsg" style="color:red; margin-top:10px;"></div>
 </section>
@@ -153,11 +153,13 @@ Quero te fazer feliz, construir uma vida e uma família ao seu lado.
 Eu te amo, minha garota — e isso é só o começo de tudo o que ainda vamos viver.💙
   </div>
   <button onclick="irParaPagina3()">Próximo 💌</button>
+  <br>
 </section>
 
 <!-- Tela 3 -->
 <section class="tela3" id="pagina3" style="display: none;">
   <h2>💌 O que falar de você?</h2>
+  <br>  
   <video class="foto-laryssa" autoplay muted loop playsinline>
     <source src="ela.mp4" type="video/mp4" />
     Seu navegador não suporta vídeo.
@@ -182,15 +184,15 @@ Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando 
 
 <!-- Tela 4 -->
 <section class="tela4" id="pagina4" style="display: none;">
-  <h1>Laryssa Rafaelly 💙</h1>
-  <h2>Quer namorar comigo? 🥰</h2>
+  <h1>Laryssa Rafaelly</h1>
+  <h2>Quer namorar comigo?</h2>
   <button onclick="aceitou()">Sim 💍</button>
   <p id="resposta" style="font-size: 20px; margin-top: 20px;"></p>
 </section>
 
 <!-- Áudios -->
-<audio id="musica" src="sua-musica.mp3" preload="auto" loop></audio>
-<audio id="musicaFinal" src="musica-final.mp3" preload="auto"></audio>
+<audio id="musica" src="aliança.mp3" preload="auto" loop></audio>
+<audio id="musicaFinal" src="aliança.mp3" preload="auto"></audio>
 
 <script>
   const senhaCorreta = "iago carioca";
@@ -225,8 +227,7 @@ Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando 
   }
 
   function aceitou() {
-    document.getElementById("resposta").textContent = "Você aceitou! Agora somos um só 💙💍";
-    musicaFinal.play().catch(() => {});
+    document.getElementById("resposta").textContent = "Você aceitou! Agora somos inseparáveis! 💙💍";
   }
 
   function iniciarEfeitos(paginaId) {
