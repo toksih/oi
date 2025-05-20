@@ -1,82 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>💙 Surpresa para Laryssa 💙</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💙 Para Laryssa Rafaelly 💙</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0ff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+    section {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 60px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
     }
-    #conteudo {
-      display: none;
+    .tela1 {
+      background-color: #e0f2ff;
     }
-    input {
+    .tela2, .tela3, .tela4 {
+      background: linear-gradient(135deg, #001f3f, #003366);
+      color: #cce6ff;
+      position: relative;
+    }
+    input, button {
+      margin-top: 10px;
       padding: 10px;
       font-size: 16px;
-      margin-top: 10px;
-      width: 80%;
-      max-width: 300px;
+      border-radius: 10px;
+      border: none;
     }
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 10px;
       background-color: #3399ff;
       color: white;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
+      transition: 0.3s;
     }
-    .mensagem-erro {
-      color: red;
-      margin-top: 10px;
+    button:hover {
+      background-color: #267acc;
     }
-    h1 {
-      color: #0059b3;
+    .texto-fixo {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: 20px auto;
+      color: #cce4ff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      white-space: pre-line;
+      z-index: 2;
+      position: relative;
+    }
+    .foto-polaroid {
+      width: 250px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+      z-index: 2;
+      position: relative;
+    }
+    .foto-laryssa {
+      width: 200px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      position: relative;
+    }
+    .efeito {
+      position: absolute;
+      top: -50px;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: cair linear infinite;
+      z-index: 1;
+    }
+    @keyframes cair {
+      to {
+        transform: translateY(120vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="senha">
-    <h2>💙 Quem te ama muito e vai ser seu futuro marido?</h2>
-    <p>Digite o <strong>nome e sobrenome</strong> dele:</p>
-    <input type="text" id="campoSenha" placeholder="Ex: João Silva">
-    <br>
-    <button onclick="verificarSenha()">Entrar</button>
-    <div class="mensagem-erro" id="erroMsg"></div>
+
+<!-- Tela 1 -->
+<section class="tela1" id="pagina1">
+  <h2>💙 Quem te ama muito e vai ser seu futuro marido? 💍</h2>
+  <p>Digite o nome completo dele:</p>
+  <input type="text" id="campoSenha" placeholder="Ex: Iago Carioca" />
+  <button onclick="verificarSenha()">Entrar 💌</button>
+  <div id="erroMsg" style="color:red; margin-top:10px;"></div>
+</section>
+
+<!-- Tela 2 -->
+<section class="tela2" id="pagina2" style="display: none;">
+  <h2>💭 Meus sentimentos por você</h2>
+  <div class="texto-fixo">
+Laryssa Rafaelly de Oliveira Laranjeira,
+
+Nunca imaginei ter tanta certeza de querer alguém para o resto da minha vida — mas com você, isso é impossível de duvidar. Fiz essa surpresa pensando em você, e, a cada palavra que escrevia, era um pedacinho do meu coração que eu deixava ali.
+
+Você é o amor da minha vida, a razão dos meus sorrisos tímidos, daqueles que aparecem do nada e me fazem lembrar de você, mesmo nos lugares mais inesperados.
+
+Quero cuidar de você, mais do que simplesmente assumir esse sentimento: quero gritar para o mundo sobre o que você significa para mim. Que você seja a escrita mais linda da minha história, o ponto final que encerra os dias difíceis, e que isso dure para sempre.
+
+Assim como quero ser tudo isso para você, quero ser seu porto seguro, seu descanso e seu homem fiel e responsável.
+
+Quero te fazer feliz, construir uma vida e uma família ao seu lado.
+
+Eu te amo, minha garota — e isso é só o começo de tudo o que ainda vamos viver.💙
   </div>
+  <img src="teamolinda.jpeg" class="foto-polaroid" alt="Foto juntos"/>
+  <button onclick="irParaPagina3()">Próximo 💌</button>
+</section>
 
-  <div id="conteudo">
-    <h1>Laryssa Rafaelly 💙</h1>
-    <h2>Quer namorar comigo?</h2>
-    <button onclick="aceitou()">Sim 💍</button>
-    <button onclick="negou()">Não 😢</button>
-    <p id="resposta" style="font-size: 18px; margin-top: 20px;"></p>
+<!-- Tela 3 -->
+<section class="tela3" id="pagina3" style="display: none;">
+  <h2>💌 O que falar de você?</h2>
+ <video class="foto-laryssa" autoplay muted loop playsinline>
+  <source src="ela.mp4" type="video/mp4" />
+  Seu navegador não suporta vídeo.
+</video>
+  <div class="texto-fixo">
+Você é como uma equação perfeita: linda, inteligente e única.
+
+Quando olhei teu sorriso, me apaixonei — agora podendo ter esse sorriso só pra mim, me sinto o homem mais feliz do mundo.
+
+Que menina perfeita, maravilhosa, esbelta, esperta, inteligente, meiga, fofa, cuidadosa… fisicamente e mentalmente LINDÍSSIMA.
+
+Eu moveria montanhas por ti, porque quando você viu meu lado ruim, você entendeu. E eu te amo muito por isso.
+
+Em troca, quero te fazer feliz todos os dias da sua vida. E irei me esforçar muito pra isso, pode ter certeza, meu amor.
+
+Você me faz completo, amor. Você é minha metade.
+
+Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando pra mim em forma de ser humano. Eu te amo muito, meu amor. 💙
   </div>
+  <button onclick="irParaPagina4()">Ir para o pedido final 💍</button>
+</section>
 
-  <script>
-    const senhaCorreta = "iago carioca";
+<!-- Tela 4 -->
+<section class="tela4" id="pagina4" style="display: none;">
+  <h1>Laryssa Rafaelly 💙</h1>
+  <h2>Quer namorar comigo? 🥰</h2>
+  <button onclick="aceitou()">Sim 💍</button>
+  <p id="resposta" style="font-size: 20px; margin-top: 20px;"></p>
+</section>
 
-    function verificarSenha() {
-      const senha = document.getElementById("campoSenha").value.trim().toLowerCase();
-      if (senha === senhaCorreta) {
-        document.getElementById("senha").style.display = "none";
-        document.getElementById("conteudo").style.display = "block";
-      } else {
-        document.getElementById("erroMsg").textContent = "Hmmm... tenta de novo, amor 💔";
-      }
+<!-- Áudios -->
+<audio id="musica" src="sua-musica.mp3" preload="auto" loop></audio>
+<audio id="musicaFinal" src="musica-final.mp3" preload="auto"></audio>
+
+<script>
+  const senhaCorreta = "iago carioca";
+  const musica = document.getElementById("musica");
+  const musicaFinal = document.getElementById("musicaFinal");
+
+  function verificarSenha() {
+    const senha = document.getElementById("campoSenha").value.trim().toLowerCase();
+    if (senha === senhaCorreta) {
+      document.getElementById("pagina1").style.display = "none";
+      document.getElementById("pagina2").style.display = "flex";
+      iniciarEfeitos("pagina2");
+      musica.play().catch(() => {});
+    } else {
+      document.getElementById("erroMsg").textContent = "Tenta de novo, meu amor 💔";
     }
+  }
 
-    function aceitou() {
-      document.getElementById("resposta").textContent = "Pedido aceito! Eu te amo 💙💙💙";
-    }
+  function irParaPagina3() {
+    document.getElementById("pagina2").style.display = "none";
+    document.getElementById("pagina3").style.display = "flex";
+    iniciarEfeitos("pagina3");
+  }
 
-    function negou() {
-      document.getElementById("resposta").textContent = "Desculpa meu amor, mas você não tem essa opção 😝";
+  function irParaPagina4() {
+    document.getElementById("pagina3").style.display = "none";
+    document.getElementById("pagina4").style.display = "flex";
+    musica.pause();
+    musica.currentTime = 0;
+    iniciarEfeitos("pagina4");
+  }
+
+  function aceitou() {
+    document.getElementById("resposta").textContent = "Você aceitou! Agora somos um só 💙💍";
+    musicaFinal.play().catch(() => {});
+  }
+
+  function iniciarEfeitos(paginaId) {
+    const pagina = document.getElementById(paginaId);
+    for (let i = 0; i < 30; i++) {
+      const estrela = document.createElement("div");
+      estrela.classList.add("efeito");
+      estrela.style.left = `${Math.random() * 100}vw`;
+      estrela.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      estrela.style.background = Math.random() > 0.5 ? "#ff99cc" : "#99ccff";
+      estrela.style.width = estrela.style.height = `${Math.random() * 8 + 5}px`;
+      pagina.appendChild(estrela);
+      setTimeout(() => estrela.remove(), 6000);
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
