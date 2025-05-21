@@ -10,65 +10,62 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f8ff;
-    }
-
-    section {
+      overflow-x: hidden;
       width: 100%;
+    }
+    section {
       min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: auto;
+    }
+    .tela1 {
+      background-color: #e0f2ff;
+    }
+    .tela2, .tela3, .tela4 {
+      background: linear-gradient(135deg, #001f3f, #003366);
+      color: #cce6ff;
+      position: relative;
+    }
+    .tela3 {
+      min-height: 100vh;
+      height: auto;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding: 20px;
-      position: relative;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      text-align: center;
     }
-
-    .tela1 {
-      background-color: #e0f2ff;
-      justify-content: center;
-    }
-
-    .tela2, .tela3, .tela4 {
-      background: linear-gradient(135deg, #001f3f, #003366);
-      color: #cce6ff;
-    }
-
     input, button {
       margin-top: 10px;
       padding: 10px;
       font-size: 16px;
       border-radius: 10px;
       border: none;
-      max-width: 90%;
     }
-
     button {
       background-color: #3399ff;
       color: white;
       cursor: pointer;
       transition: 0.3s;
     }
-
     button:hover {
       background-color: #267acc;
     }
-
     .texto-fixo {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       padding: 20px;
       border-radius: 15px;
-      max-width: 90%;
+      max-width: 320px;
       margin: 20px auto;
       color: #cce4ff;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
@@ -76,17 +73,34 @@
       z-index: 2;
       position: relative;
     }
-
+    .foto-polaroid {
+      width: 250px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+      z-index: 2;
+      position: relative;
+    }
     .foto-laryssa {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 15px;
       margin-bottom: 15px;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
       z-index: 2;
+      position: relative;
     }
-
+    video.foto-laryssa {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+      z-index: 2;
+      position: relative;
+    }
     .efeito {
       position: absolute;
       top: -50px;
@@ -98,7 +112,6 @@
       animation: cair linear infinite;
       z-index: 1;
     }
-
     @keyframes cair {
       to {
         transform: translateY(120vh);
@@ -120,7 +133,7 @@
 
 <!-- Tela 2 -->
 <section class="tela2" id="pagina2" style="display: none;">
-  <h2>💭 Meus sentimentos por você</h2>
+  <h2 style="margin-top: 20px;">💭 Meus sentimentos por você</h2>
   <div class="texto-fixo">
 Laryssa Rafaelly de Oliveira Laranjeira,
 
@@ -136,12 +149,14 @@ Quero te fazer feliz, construir uma vida e uma família ao seu lado.
 
 Eu te amo, minha garota — e isso é só o começo de tudo o que ainda vamos viver.💙
   </div>
+  <div style="height: 40px;"></div>
   <button onclick="irParaPagina3()">Próximo 💌</button>
+  <div style="height: 60px;"></div>
 </section>
 
 <!-- Tela 3 -->
 <section class="tela3" id="pagina3" style="display: none;">
-  <h2>💌 O que falar de você?</h2>
+  <h2 style="margin-top: 20px;">💌 O que falar de você?</h2>
   <video class="foto-laryssa" autoplay muted loop playsinline>
     <source src="ela.mp4" type="video/mp4" />
     Seu navegador não suporta vídeo.
@@ -161,7 +176,9 @@ Você me faz completo, amor. Você é minha metade.
 
 Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando pra mim em forma de ser humano. Eu te amo muito, meu amor. 💙
   </div>
+  <div style="height: 40px;"></div>
   <button onclick="irParaPagina4()">Ir para o pedido final 💍</button>
+  <div style="height: 60px;"></div>
 </section>
 
 <!-- Tela 4 -->
@@ -173,12 +190,13 @@ Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando 
 </section>
 
 <!-- Áudios -->
-<audio id="musica" src="alianca.mp3" preload="auto" loop></audio>
-<audio id="musicaFinal" src="alianca.mp3" preload="auto"></audio>
+<audio id="musica" src="aliança.mp3" preload="auto" loop></audio>
+<audio id="musicaFinal" src="aliança.mp3" preload="auto"></audio>
 
 <script>
   const senhaCorreta = "iago carioca";
   const musica = document.getElementById("musica");
+  const musicaFinal = document.getElementById("musicaFinal");
 
   function verificarSenha() {
     const senha = document.getElementById("campoSenha").value.trim().toLowerCase();
@@ -224,6 +242,5 @@ Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando 
     }
   }
 </script>
-
 </body>
 </html>
