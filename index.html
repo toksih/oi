@@ -96,7 +96,6 @@
       height: 180px;
       object-fit: cover;
       border-radius: 15px;
-      margin-bottom: 15px;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
       z-index: 2;
       position: relative;
@@ -116,6 +115,17 @@
       to {
         transform: translateY(120vh);
         opacity: 0;
+      }
+    }
+    .flutuando {
+      animation: flutuar 3s ease-in-out infinite;
+    }
+    @keyframes flutuar {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
       }
     }
   </style>
@@ -156,12 +166,15 @@ Eu te amo, minha garota — e isso é só o começo de tudo o que ainda vamos vi
 
 <!-- Tela 3 -->
 <section class="tela3" id="pagina3" style="display: none;">
-  <h2 style="margin-top: 20px;">💌 O que falar de você?</h2>
-  <video class="foto-laryssa" autoplay muted loop playsinline>
-    <source src="ela.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo.
-  </video>
-  <div class="texto-fixo">
+  <div style="max-width: 600px; display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 40px;">
+    <h2 style="margin-top: 10px;">💌 O que falar de você?</h2>
+    
+    <video class="foto-laryssa flutuando" autoplay muted loop playsinline>
+      <source src="ela.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+
+    <div class="texto-fixo">
 Você é como uma equação perfeita: linda, inteligente e única.
 
 Quando olhei teu sorriso, me apaixonei — agora podendo ter esse sorriso só pra mim, me sinto o homem mais feliz do mundo.
@@ -175,7 +188,9 @@ Em troca, quero te fazer feliz todos os dias da sua vida. E irei me esforçar mu
 Você me faz completo, amor. Você é minha metade.
 
 Você é simplesmente toda a caridade e boa vontade que eu fiz na vida voltando pra mim em forma de ser humano. Eu te amo muito, meu amor. 💙
+    </div>
   </div>
+
   <div style="height: 40px;"></div>
   <button onclick="irParaPagina4()">Ir para o pedido final 💍</button>
   <div style="height: 60px;"></div>
